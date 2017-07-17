@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
   
-
+  
   post 'users' => 'users#create'
   post 'users/authenticate' => 'users#authenticate'
 

@@ -15,3 +15,39 @@
  */
  @import "bootstrap";
 
+*{
+    font-family: sans-serif;
+}
+.register {
+    background-color: #696969;
+    color: white;
+    display: inline-block;
+    width: 300px;
+}
+
+span {
+    color: Black;
+}
+
+button {
+    background-color: black;
+    color: white;
+}
+
+.list {
+    background-color: #696969;
+    display: inline-block;
+    width: 400px;
+    color: lightgray;
+}
+a {
+    color: white;
+}
+
+.newtask {
+    background-color: #696969;
+    width: 300px;
+    text-align: center;
+    color: lightgray;
+}
+

@@ -1,30 +1,54 @@
-<h1> <u> Todo List: </u> </h1>
+<div class="list">
+  <h1>
+    <span> <u> Todo List: </u> </span>
+  </h1>
+  <br>
+  <p> When an appointment is completed, please check the box. </p>
+  <br>
+  <ul>
+    <% if @hidden == 'true' %>
+      <% @tasks.each do |task| %>
+        <p>
+          <% if task.status == true %>
+            <a href="/tasks/<%= task.id %>/finished"> <input type="checkbox"> </a>
+            <p>
+              <%= task.description %> --
+                <%=task.date %>
+            </p>
+            <hr>
+            <% end %>
+              <p>
+                <% end %>
+                  <% else %>
+                    <% @tasks.each do |task| %>
+                      <p>
+                        <% if task.status == true %>
+                          <a href="/tasks/<%= task.id %>/finished"> <input type="checkbox"> </a>
+                          <p>
+                            <%= task.description %> --
+                              <%=task.date %>
+                          </p>
+                          <hr>
+                          <% else %>
+                            <a href="/tasks/<%= task.id %>/unfinished"> <input type="checkbox" checked="checked"> </a>
+                            <p>
+                              <%= task.description %> --
+                                <%=task.date %>
+                            </p>
+                            <hr>
+                            <% end %>
+                      </p>
+                      <% end %>
+                        <% end %>
+  </ul>
+  <br>
+  <br>
+  <br>
 
-<ul>
-<% if @hidden == 'true' %>
-  <% @tasks.each do |task| %>
-    <li>
-      <% if task.status == true %>
-        <a href="/tasks/<%= task.id %>/finished"> <input type="checkbox"> </a> <p> <%= task.description %> -- <%=task.date %> </p> <hr>
-      <% end %>  
-    </li>
-   <% end %> 
-<% else %>
-  <% @tasks.each do |task| %>
-      <li>
-        <% if task.status == true %>
-          <a href="/tasks/<%= task.id %>/finished"> <input type="checkbox"> </a> <p> <%= task.description %> -- <%=task.date %> </p> <hr>
-        <% else %>  
-          <a href="/tasks/<%= task.id %>/unfinished"> <input type="checkbox" checked="checked"> </a> <p> <%= task.description %> -- <%=task.date %> </p> <hr>
-        <% end %>
-      </li> 
-  <% end %>
-<% end %>  
-</ul>
 
-
-<% if @hidden == 'true'  %>
-  <a href="/tasks/show?hidden=false"> Show Finished Items </a> | <a href="/tasks/new"> Create New </a>
-<% else %>  
-  <a href="/tasks/show?hidden=true"> Hide Finished Items </a> | <a href="/tasks/new"> Create New </a>
-<% end %>
+  <% if @hidden == 'true'  %>
+    <a href="/tasks/show?hidden=false"> Show Finished Items </a> | <a href="/tasks/new"> Create New </a>
+    <% else %>
+      <a href="/tasks/show?hidden=true"> Hide Finished Items </a> | <a href="/tasks/new"> Create New </a>
+      <% end %>
+</div>
